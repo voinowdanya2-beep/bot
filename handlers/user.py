@@ -44,11 +44,15 @@ async def prices(callback: CallbackQuery):
         "<b>Прайсы</b>\n\n"
         "Актуальные цены и услуги:\n"
     )
-    media = [ 
-        InputMediaPhoto(media=FSInputFile("assets/прайс.jpg")),
-        InputMediaPhoto(media=FSInputFile("assets/доп.информация.jpg"))
-    ]
-    await callback.message.answer_media_group(media)
+    await callback.message.answer_photo( 
+        photo=FSInputFile("assets/прайс.jpg"),
+        caption="Прайс-лист"
+    )
+    await callback.message.answer_photo( 
+        photo=FSInputFile("assets/доп.информация.jpg")
+        caption="Доп.информация"
+    )
+    
     await callback.answer()
 
 
