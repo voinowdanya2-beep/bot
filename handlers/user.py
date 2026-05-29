@@ -49,7 +49,7 @@ async def prices(callback: CallbackQuery):
         caption="Прайс-лист"
     )
     await callback.message.answer_photo( 
-        photo=FSInputFile("assets/доп.информация.jpg")
+        photo=FSInputFile("assets/доп.информация.jpg"),
         caption="Доп.информация"
     )
     
