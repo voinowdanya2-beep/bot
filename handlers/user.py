@@ -15,6 +15,7 @@ from keyboards.inline import (
 from states.booking import BookingFSM
 from services.subscription import is_subscribed
 from services.reminders import schedule_reminder, remove_reminder
+from aiogram.types import FSInputFile, InputMediaPhoto
 
 router = Router()
 
@@ -23,7 +24,7 @@ router = Router()
 async def start(message: Message):
     await message.answer(
         "<b>Добро пожаловать!</b>\n\n"
-        "Здесь можно записаться на маникюр, посмотреть цены и портфолио.",
+        "Здесь можно записаться ко мне на маникюр, посмотреть цены и портфолио.",
         reply_markup=main_menu()
     )
 
@@ -41,10 +42,13 @@ async def back_main(callback: CallbackQuery, state: FSMContext):
 async def prices(callback: CallbackQuery):
     await callback.message.answer(
         "<b>Прайсы</b>\n\n"
-        "Френч — позже напишу ценник\n"
-        "Квадрат — тоже позже"
+        "Актуальные цены и услуги:\n"
     )
-    await callback.answer()
+    media = [ 
+        InputMediaPhoto(media=FSInputFile("assets/прайс.jpg")),
+        InputMediaPhoto(media=FSInputFile("assets/доп.информация.jpg"))
+    ]
+    await message.answer_media_group(media)
 
 
 @router.callback_query(F.data == "portfolio")
