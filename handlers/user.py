@@ -48,7 +48,8 @@ async def prices(callback: CallbackQuery):
         InputMediaPhoto(media=FSInputFile("assets/прайс.jpg")),
         InputMediaPhoto(media=FSInputFile("assets/доп.информация.jpg"))
     ]
-    await message.answer_media_group(media)
+    await callback.message.answer_media_group(media)
+    await callback.answer()
 
 
 @router.callback_query(F.data == "portfolio")
