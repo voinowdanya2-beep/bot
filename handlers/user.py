@@ -45,11 +45,11 @@ async def prices(callback: CallbackQuery):
         "Актуальные цены и услуги:\n"
     )
     await callback.message.answer_photo( 
-        photo=FSInputFile("assets/прайс.jpg"),
+        photo="AgACAgIAAxkBAANCahnp9cYjV0T5uPtvC3NRCgop6nwAAh4YaxsRSdBIEuPiF2gQUBYBAAMCAAN5AAM7BA",
         caption="Прайс-лист"
     )
     await callback.message.answer_photo( 
-        photo=FSInputFile("assets/доп.информация.jpg"),
+        photo="AgACAgIAAxkBAANDahnqBmEouJlA2u3jezMin8079hsAAlEgaxs_xdFIoD1fg9u4dnsBAAMCAAN5AAM7BA",
         caption="Доп.информация"
     )
     
