@@ -55,11 +55,7 @@ async def prices(callback: CallbackQuery):
     
     await callback.answer()
 
-@router.message(F.photo)
-async def get_photo_id(message: Message):
-    await message.answer(
-        f"<code>{message.photo[-1].file_id}</code>"
-    )
+
 
 
 @router.callback_query(F.data == "portfolio")
