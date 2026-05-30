@@ -8,7 +8,11 @@ load_dotenv()
 @dataclass
 class Config:
     BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
-    ADMIN_ID: int = int(os.getenv("ADMIN_ID", "0"))
+    ADMIN_IDS: list[int] = [
+    int(admin_id)
+    for admin_id in os.getenv("ADMIN_IDS", "").split(",")
+    if admin_id.strip()
+]
 
     CHANNEL_ID: int = int(os.getenv("CHANNEL_ID", "0"))
     CHANNEL_LINK: str = os.getenv("CHANNEL_LINK", "")
